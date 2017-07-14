@@ -11,7 +11,7 @@
 <body>
   <div class="container">
     <div class="row" id="header">
-      <h1>Build a Pizza</h1>
+      <h1>Build-a-Pizza</h1>
     </div>
 
     <div class="row"  id="arrowHeader">
@@ -48,7 +48,7 @@
         <form>
       <div class="col-sm-9">
         <div id="orderSize">
-
+<h1>What size do you want?</h1>
             <div class="form-group">
               <label for="size">Size:</label>
               <select class="form-control" id="size">
@@ -61,7 +61,7 @@
 
         </div>
         <div id="orderCrust">
-
+<h1>What type of crust do you want?</h1>
             <div class="form-group">
               <label for="crust">Crust:</label>
               <select class="form-control" id="crust">
@@ -73,11 +73,12 @@
 
         </div>
         <div id="orderToppings">
-          <label class="checkbox-inline"><input type="checkbox" value="ham">Ham</label>
-          <label class="checkbox-inline"><input type="checkbox" value="olives">Olives</label>
-          <label class="checkbox-inline"><input type="checkbox" value="pepperoni">Pepperoni</label>
+          <h1>Choose some delicious toppings!</h1>
+          <label class="checkbox-inline"><input type="checkbox" value="Ham">Ham</label>
+          <label class="checkbox-inline"><input type="checkbox" value="Olives">Olives</label>
+          <label class="checkbox-inline"><input type="checkbox" value="Pepperoni">Pepperoni</label>
         </div>
-        <button type="submit" id="btnContinue">Continue</button>
+        <button type="submit" id="btnContinue">Add and Continue</button>
       </form>
     </div>
 
@@ -86,6 +87,7 @@
         <ul id="cartItems">
 
         </ul>
+        <h3>Final Price = $<span id="finalPrice"></span></h3>
         <button type="button" name="button">Place Order!</button>
       </div>
 

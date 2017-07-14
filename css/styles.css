@@ -8,19 +8,30 @@
   margin: 20px;
   font-size: 2em;
 }
+#header{
+  background-image: url("../img/pizzaBG.png");
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
 #header h1{
+  color: white;
   text-align: center;
-  font-size: 4em;
+  font-size: 7em;
+  -webkit-text-stroke-width: 1px black;
+  text-shadow:
+  3px 3px 0 #000,
+-1px -1px 0 #000,
+ 1px -1px 0 #000,
+ -1px 1px 0 #000,
+  1px 1px 0 #000;
 }
 
 #arrowHeader img{
   width: 300px;
   height: 150px;
-margin: 10px;
+margin-bottom: 10px;
 }
-#arrowHeader h2{
-  pointer-events: none;
-}
+
 #arrowHeader img:hover{
   cursor:pointer;
 width: 310px;
@@ -42,11 +53,12 @@ background-color:#cee1ff;
 }
 
 #arrowHeader h2{
+    pointer-events: none;
   position: absolute;
   font-size: 3em;
   width: 100%;
-    top: 40px;
-    left: 50px;
+    top: 30px;
+    left: 40px;
 
     -webkit-text-stroke-width: 1px black;
     text-shadow:
