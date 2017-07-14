@@ -7,15 +7,23 @@
   font-size: 4em;
 }
 #arrowHeader img{
-  width: 310px;
-
+  width: 300px;
+  height: 150px;
+margin: 10px;
+}
+#arrowHeader h2{
+  pointer-events: none;
+}
+#arrowHeader img:hover{
+  cursor:pointer;
+width: 310px;
 }
 #arrowHeader{
 
 text-align: center;
 background-color:#cee1ff;
   border-radius: 25px;
-  margin: 30px;
+  margin: 10px;
 }
 #order{
 
