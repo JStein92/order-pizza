@@ -1,45 +1,86 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Order Pizza</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="css/styles.css">
-    <script type="text/javascript" src = "js/scripts.js">
-    </script>
-  </head>
-  <body>
-    <div class="container">
-      <h1>Build a pizza</h1>
+<head>
+  <title>Order Pizza</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="text/javascript" src = "js/scripts.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="row" id="header">
+        <h1>Build a Pizza</h1>
+    </div>
 
- <form>
+<div class="row"  id="arrowHeader">
+<div class="col-xs-3">
+
+</div>
+<div class="col-xs-6">
+  <div class="row">
+    <div class="col-md-4">
+      <div id="arrowOne" class="image">
+          <img src="img/arrow.png" alt="">
+          <h2>Size</h2>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div id="arrowTwo">
+          <img src="img/arrow.png" alt="">
+            <h2>Crust</h2>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div id="arrowThree">
+          <img src="img/arrow.png" alt="">
+            <h2>Toppings</h2>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-xs-3">
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+
+    <form>
 
       <div class="form-group">
-       <label for="size">Size:</label>
-       <select class="form-control" id="size">
-         <option>X-tra Large</option>
-         <option>Large</option>
-         <option>Medium</option>
-         <option>Small</option>
-       </select>
-     </div>
+        <label for="size">Size:</label>
+        <select class="form-control" id="size">
+          <option>X-tra Large</option>
+          <option>Large</option>
+          <option>Medium</option>
+          <option>Small</option>
+        </select>
+      </div>
 
-     <div class="form-group">
-      <label for="crust">Crust:</label>
-      <select class="form-control" id="crust">
-        <option>Thin</option>
-        <option>Thick</option>
-        <option>Stuffed</option>
-      </select>
-    </div>
+      <div class="form-group">
+        <label for="crust">Crust:</label>
+        <select class="form-control" id="crust">
+          <option>Thin</option>
+          <option>Thick</option>
+          <option>Stuffed</option>
+        </select>
+      </div>
 
-    <label class="checkbox-inline"><input type="checkbox" value="ham">Ham</label>
-   <label class="checkbox-inline"><input type="checkbox" value="olives">Olives</label>
-   <label class="checkbox-inline"><input type="checkbox" value="pepperoni">Pepperoni</label>
+      <label class="checkbox-inline"><input type="checkbox" value="ham">Ham</label>
+      <label class="checkbox-inline"><input type="checkbox" value="olives">Olives</label>
+      <label class="checkbox-inline"><input type="checkbox" value="pepperoni">Pepperoni</label>
 
-<button type="submit" name="button">Place my Order!</button>
-     </form>
+      <button type="submit" name="button">Place my Order!</button>
+    </form>
 
-    </div>
-  </body>
+  </div>
+</body>
 </html>

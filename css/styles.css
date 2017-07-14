@@ -1,0 +1,38 @@
+.container{
+  font-family: 'Roboto Slab', serif;
+  background-color: #eddac7;
+}
+#header h1{
+  text-align: center;
+  font-size: 4em;
+}
+#arrowHeader{
+  text-align: center;
+background-color:#cee1ff;
+  border-radius: 25px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+#arrowHeader img{
+  width: 200px;
+  padding: 5px;
+}
+.image{
+    position: relative;
+}
+#arrowHeader h2{
+  position: absolute;
+  font-size: 2em;
+    top: 20px;
+    left: 40px;
+    width: 100%;
+    color: white;
+    -webkit-text-stroke-width: 1px black;
+    text-shadow:
+    3px 3px 0 #000,
+  -1px -1px 0 #000,
+   1px -1px 0 #000,
+   -1px 1px 0 #000,
+    1px 1px 0 #000;
+
+}

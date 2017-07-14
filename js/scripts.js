@@ -17,6 +17,7 @@ $('form').submit(function(e){
   $('input[type=checkbox]:checked').each(function(){
     newPizza.toppings.push(this.value);
   });
+
   alert(newPizza.toppings)
 })
 
