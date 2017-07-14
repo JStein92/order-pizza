@@ -23,19 +23,19 @@
           <div class="col-sm-4">
             <div id="arrowOne" class="image">
               <img src="img/arrow.png" alt="">
-              <h2>Size</h2>
+              <h2 id="arrowOneText">Size</h2>
             </div>
           </div>
           <div class="col-sm-4">
             <div id="arrowTwo">
               <img src="img/arrow.png" alt="">
-              <h2>Crust</h2>
+              <h2 id="arrowTwoText">Crust</h2>
             </div>
           </div>
           <div class="col-sm-4">
             <div id="arrowThree">
               <img src="img/arrow.png" alt="">
-              <h2>Toppings</h2>
+              <h2 id="arrowThreeText">Toppings</h2>
             </div>
           </div>
           <div class="col-sm-2">
@@ -45,9 +45,10 @@
     </div>
 
     <div class="row">
+        <form>
       <div class="col-sm-9">
         <div id="orderSize">
-          <form>
+
             <div class="form-group">
               <label for="size">Size:</label>
               <select class="form-control" id="size">
@@ -57,10 +58,10 @@
                 <option>Small</option>
               </select>
             </div>
-          </form>
+
         </div>
         <div id="orderCrust">
-          <form>
+
             <div class="form-group">
               <label for="crust">Crust:</label>
               <select class="form-control" id="crust">
@@ -69,22 +70,25 @@
                 <option>Stuffed</option>
               </select>
             </div>
-          </form>
+
         </div>
         <div id="orderToppings">
           <label class="checkbox-inline"><input type="checkbox" value="ham">Ham</label>
           <label class="checkbox-inline"><input type="checkbox" value="olives">Olives</label>
           <label class="checkbox-inline"><input type="checkbox" value="pepperoni">Pepperoni</label>
         </div>
-        <button type="submit" name="button">Place my Order!</button>
+        <button type="submit" id="btnContinue">Continue</button>
       </form>
     </div>
-    <div id="sidebar">
-      <div class="col-sm-3">
-        <h1>test</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+      <div class="col-sm-3" id="sidebar">
+        <h1>Cart</h1>
+        <ul id="cartItems">
+
+        </ul>
+        <button type="button" name="button">Place Order!</button>
       </div>
-    </div>
+
 
 
 
