@@ -48,9 +48,9 @@
         <form>
       <div class="col-sm-9">
         <div id="orderSize">
-<h1>What size do you want?</h1>
+          <h1>What size do you want?</h1>
             <div class="form-group">
-              <label for="size">Size:</label>
+
               <select class="form-control" id="size">
                 <option>X-tra Large</option>
                 <option>Large</option>
@@ -61,9 +61,9 @@
 
         </div>
         <div id="orderCrust">
-<h1>What type of crust do you want?</h1>
+          <h1>What type of crust do you want?</h1>
             <div class="form-group">
-              <label for="crust">Crust:</label>
+
               <select class="form-control" id="crust">
                 <option>Thin</option>
                 <option>Thick</option>
@@ -73,27 +73,33 @@
 
         </div>
         <div id="orderToppings">
-          <h1>Choose some delicious toppings!</h1>
+          <h1>Choose some delicious toppings for just $1 each!</h1>
           <label class="checkbox-inline"><input type="checkbox" value="Ham">Ham</label>
           <label class="checkbox-inline"><input type="checkbox" value="Olives">Olives</label>
           <label class="checkbox-inline"><input type="checkbox" value="Pepperoni">Pepperoni</label>
         </div>
-        <button type="submit" id="btnContinue">Add and Continue</button>
+        <button type="submit" id="addToCart">Add to Cart</button>
       </form>
+          <button type="button" id="continue">Continue</button>
     </div>
+
 
       <div class="col-sm-3" id="sidebar">
         <h1>Cart</h1>
         <ul id="cartItems">
 
         </ul>
-        <h3>Final Price = $<span id="finalPrice"></span></h3>
-        <button type="button" name="button">Place Order!</button>
+        <h3>Total Price = $<span id="finalPrice">0</span></h3>
+        <div class="row">
+          <div class="col-md-6">
+              <button type="button" id="anotherPizza">New Pizza</button>
+          </div>
+          <div class="col-md-6">
+              <button type="button" id="placeOrder">Place Order!</button>
+          </div>
+        </div>
+
       </div>
-
-
-
-
   </div>
 </body>
 </html>

@@ -1,33 +1,40 @@
 var orderStage = 1;
-
-function Pizza(size, crust, toppings){
+var pizzaNumber = 1;
+var finalPrice = 0;
+var pizzas = [];
+function Pizza(size, crust, toppings, price){
   this.size = size;
   this.crust = crust;
   this.toppings = [];
+  this.price = price;
 }
 
 Pizza.prototype.findPrice = function(){
-  var finalPrice = 0;
+  var myPrice = 0;
   if (this.size === "X-tra Large"){
-    finalPrice += 15;
+    myPrice += 15;
   }else if (this.size === "Large"){
-    finalPrice+=13;
+    myPrice+=13;
   }else if (this.size === "Medium"){
-    finalPrice+=11;
+    myPrice+=11;
   }else if (this.size === "Small"){
-    finalPrice+=9;
+    myPrice+=9;
   }
-  if (this.crust === "Thin"){
-    finalPrice*=1;
-  }  else if (this.crust === "Thick"){
-    finalPrice*=1.1;
-  }else if (this.crust === "Stuffed"){
-    finalPrice*=1.2;
+  if (orderStage>1){
+    if (this.crust === "Thin"){
+      myPrice*=1;
+    }  else if (this.crust === "Thick"){
+      myPrice*=1.1;
+    }else if (this.crust === "Stuffed"){
+      myPrice*=1.2;
+    }
   }
-  if (this.toppings.length >0){
-    finalPrice += (this.toppings.length *1)
+  if (orderStage >2){
+    if (this.toppings.length >0){
+      myPrice += (this.toppings.length *1)
+    }
   }
-  return finalPrice;
+  this.price = myPrice;
 }
 function hideAndShow(stage){
   $('#orderCrust').hide();
@@ -37,78 +44,101 @@ function hideAndShow(stage){
   if (stage===1){
     $('#orderSize').fadeIn('fast');
     textColor($('#arrowOneText'));
-
+    $('#addToCart').hide();
   }
   if (stage===2){
     $('#orderCrust').fadeIn('fast');
     textColor($('#arrowTwoText'));
+    $('#addToCart').hide();
   }
   if (stage===3){
     $('#orderToppings').fadeIn('fast');
     textColor($('#arrowThreeText'));
+    $('#addToCart').show();
   }
 }
 
-function buildCart(pizza){
-  $('#cartItems').text('');
+Pizza.prototype.buildCart = function(){
+  this.findPrice();
+  var toppings = '';
+  this.toppings.forEach(function(topping){
+    toppings += ("<li>" + topping.toString() + "</li>");
+  });
 
-  if (orderStage ===3){
-    $('#cartItems').append("<li>" + 'Size: ' + pizza.size + "</li>")
-    $('#cartItems').append("<li>" +"Crust: " + pizza.crust + "</li>")
-    $('#cartItems').append("<li>" + "Toppings: "+ pizza.toppings + "</li>")
+  $('#cartItems').append(
+    "<h2>" + 'Pizza ' + pizzaNumber + "</h2>" +
+    "<li> Size: " + this.size + "</li>" +
+    "<li> Crust: " + this.crust + "</li>"+
+    "<h4> Toppings:" + "</h4>" + toppings +
+    "<h4> Price: " + this.price.toFixed(2) + "</h4>");
 
-  }else if (orderStage>=2){
-    $('#cartItems').append("<li>" + 'Size: ' + pizza.size + "</li>")
-    $('#cartItems').append("<li>" +"Crust: " + pizza.crust + "</li>")
-  }else if (orderStage>=1){
-    $('#cartItems').append("<li>" + 'Size: ' + pizza.size + "</li>")
+    finalPrice+=this.price;
   }
-  $('#finalPrice').text(pizza.findPrice().toFixed(2));
-}
 
-function textColor(idToChange){
-  $('#arrowOneText').removeClass('greenText').addClass('whiteText')
-  $('#arrowTwoText').removeClass('greenText').addClass('whiteText')
-  $('#arrowThreeText').removeClass('greenText').addClass('whiteText')
-  idToChange.addClass('greenText');
-}
+  function textColor(idToChange){
+    $('#arrowOneText').removeClass('greenText').addClass('whiteText')
+    $('#arrowTwoText').removeClass('greenText').addClass('whiteText')
+    $('#arrowThreeText').removeClass('greenText').addClass('whiteText')
+    idToChange.addClass('greenText');
+  }
 
-$(function(){
-  orderStage=1;
-  hideAndShow(orderStage);
-  $('#arrowOneText').addClass('whiteText');
-  $('#arrowTwoText').addClass('whiteText');
-  $('#arrowThreeText').addClass('whiteText');
+  $(function(){
+    orderStage=1;
+    hideAndShow(orderStage);
+    $('#arrowOneText').addClass('whiteText');
+    $('#arrowTwoText').addClass('whiteText');
+    $('#arrowThreeText').addClass('whiteText');
 
-  $('form').submit(function(e){
-    e.preventDefault();
-    var selectedSize = $('#size').val();
-    var selectedCrust = $('#crust').val();
-    var newPizza = new Pizza(selectedSize, selectedCrust, Array [0])
-    $('input[type=checkbox]:checked').each(function(){
-      newPizza.toppings.push(this.value);
+    $('form').submit(function(e){
+      e.preventDefault();
+      var selectedSize = $('#size').val();
+      var selectedCrust = $('#crust').val();
+      var newPizza = new Pizza(selectedSize, selectedCrust, Array [0], 0)
+      $('input[type=checkbox]:checked').each(function(){
+        newPizza.toppings.push(this.value);
+      });
+
+      newPizza.buildCart();
+      $('#finalPrice').text(finalPrice.toFixed(2));
+      pizzaNumber++;
     });
-    buildCart(newPizza);
 
-    if (orderStage<3){
-      orderStage++;
-    }
-    hideAndShow(orderStage);
+    $('#continue').click(function(){
+      if (orderStage<3){
+        orderStage++;
+      }
+      if (orderStage===3){
+        $('#addToCart').show();
+      }
+      else{
+        $('#addToCart').hide();
+      }
+      hideAndShow(orderStage);
+    });
+
+    $('#anotherPizza').click(function(){
+      orderStage = 1;
+      hideAndShow(orderStage);
+    });
+    $('#placeOrder').click(function(){
+      $('#cartItems').empty();
+      finalPrice=0;
+      alert('Order Placed!');
+      orderStage = 1;
+      hideAndShow(orderStage);
+      $('#finalPrice').text(finalPrice.toFixed(2));
+    });
+
+    $('#arrowOne').click(function(){
+      orderStage = 1;
+      hideAndShow(orderStage);
+    });
+    $('#arrowTwo').click(function(){
+      orderStage = 2;
+      hideAndShow(orderStage);
+    });
+    $('#arrowThree').click(function(){
+      orderStage = 3;
+      hideAndShow(orderStage);
+    });
   })
-
-  $('#arrowOne').click(function(){
-    orderStage = 1;
-    hideAndShow(orderStage);
-  });
-  $('#arrowTwo').click(function(){
-    orderStage = 2;
-    hideAndShow(orderStage);
-  });
-  $('#arrowThree').click(function(){
-    orderStage = 3;
-    hideAndShow(orderStage);
-  });
-
-  //  alert(newPizza.crust);
-
-})

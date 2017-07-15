@@ -3,7 +3,11 @@
   background-color: #eddac7;
   padding-bottom: 100px;
 }
-#btnContinue{
+label{
+  font-size: 2em;
+}
+#addToCart{
+  display: none;
   float: right;
   margin: 20px;
   font-size: 2em;
